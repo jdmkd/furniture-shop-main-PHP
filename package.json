@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "touch": "^3.1.0",
+    "touch-cli": "^0.0.1"
+  }
+}
