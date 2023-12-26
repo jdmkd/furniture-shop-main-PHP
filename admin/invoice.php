@@ -52,11 +52,11 @@ if (isset($_GET['invoice'])) {
    $pdf->Cell(130, 5, ' ', 0, 0);
    $pdf->Cell(59, 5, '', 0, 1); //end of line
 
-   $pdf->Cell(130, 5, 'Lahore Cantt, Pakistan , 5400', 0, 0);
+   $pdf->Cell(130, 5, 'Ahmedabad, India , 380061', 0, 0);
    $pdf->Cell(25, 5, 'Date', 0, 0);
    $pdf->Cell(34, 5, $order_date, 0, 1); //end of line
 
-   $pdf->Cell(130, 5, 'Phone +923xx-xxxxxxx', 0, 0);
+   $pdf->Cell(130, 5, 'Phone +91637604539', 0, 0);
    $pdf->Cell(25, 5, 'Invoice #', 0, 0);
    $pdf->Cell(34, 5, $order_invoice, 0, 1); //end of line
 
