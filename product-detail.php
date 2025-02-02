@@ -6,7 +6,7 @@
 
 <main>
 
-  <div class="container">
+  <div class="">
     <center>
       <div class="w-75">
         <?php
@@ -17,7 +17,7 @@
       </div>
     </center>
     <!--Section: Block Content-->
-    <section class="my-5 border rounded p-3 pt-5 hover-effect cursor-pointer">
+    <section class="container my-5 border rounded p-3 pt-5 hover-effect cursor-pointer">
       <div class="row">
 
         <?php
@@ -144,12 +144,12 @@
 
 
     <!--Section: New products-->
-    <section>
+    <div>
 
       <h3 class="text-center pt-5 mb-5">Related Products </h3>
 
       <!-- Grid row -->
-      <div class="col-md-12 row mt-4 ml-0 mr-0 justify-content-between ">
+      <div class="col-12 row mt-4 ml-0 mr-0 justify-content-center ">
 
         <!-- Grid column -->
         <?php
@@ -166,27 +166,45 @@
             $img1    = $p_row['image'];
         ?>
 
-            <div class="col-md-6 col-lg-3 mb-4 product_cards">
-              <img src="img/<?php echo $img1; ?>" class="hover-effect" width="100%" height="190px">
-              <div class="text-center mt-3">
-                <h5 title="<?php echo $ptitle; ?>"><?php echo substr($ptitle, 0, 20); ?>...</h5>
-                <h6>Rs. <?php echo $p_price; ?></h6>
-              </div>
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2 mx-3 mb-4 border pt-3">
+                  <div class="card h-100 border-0 shadow-sm">
+                    <div class="position-relative" style="height: 200px; overflow: hidden;">
+                      <img src="img/<?php echo $img1; ?>" class="card-img-top w-100 h-100 object-fit-cover rounded-top"
+                          alt="<?php echo $ptitle; ?>">
+                    </div>
+                    <div class="card-body d-flex flex-column justify-content-between py-3 px-0 mx-0">
+                      <!-- Product Title -->
+                      <h5 class="card-title fw-bold text-truncate mb-2" title="<?php echo $ptitle; ?>">
+                        <?php echo (strlen($ptitle) > 20) ? substr($ptitle, 0, 20) . '...' : $ptitle; ?>
+                      </h5>
 
-              <div class="row">
-                <div class="col-md-12 col-sm-12 col-12 text-center">
+                      <!-- Price & Rating Section -->
+                      <div class="mb-3">
+                        <h6 class="card-subtitle text-danger fw-semibold">₹<?php echo number_format($p_price, 2); ?></h6>
+                        <div class="text-warning">
+                          ★★★★☆ <span class="text-muted fs-6"></span>
+                        </div>
+                      </div>
 
-                  <a href="product-detail.php?product_id=<?php echo $pid; ?>" type="submit" onclick="a()" class="btn btn-primary btn-sm hover-effect">
-                    <i class="far fa-shopping-cart"></i>
-                  </a>
-                  <a href="product-detail.php?product_id=<?php echo $pid; ?>" class="btn btn-default btn-sm hover-effect text-dark">
-                    <i class="far fa-info-circle"></i> View Details
-                  </a>
+                      <!-- Buttons Section -->
+                      <div class="d-grid gap-3 justify-content-center text-center">
+                        <!-- Add to Cart Button -->
+                        <a href="product.php?cart_id=<?php echo $pid; ?>" 
+                          class="btn btn-primary btn-sm px-3 py-2 shadow-sm fw-semibold d-flex align-items-center justify-content-center mb-2 ">
+                          <i class="fas fa-shopping-cart mx-2"></i> Add to Cart
+                        </a>
 
+                        <!-- View Details Button -->
+                        <a href="product-detail.php?product_id=<?php echo $pid; ?>" 
+                          class="btn btn-success btn-sm px-3 py-2 shadow-sm fw-semibold d-flex align-items-center justify-content-center">
+                          <i class="fas fa-info-circle mx-2"></i> View Details
+                        </a>
+                      </div>
+
+                    </div>
+
+                  </div>
                 </div>
-
-              </div>
-            </div>
 
         <?php
           }

@@ -33,9 +33,9 @@ if (!isset($_SESSION['email'])) {
         future purchases and notify us of changes in your contact details.</p>
 
       <a href="access-detail.php">
-        <h6 class="text-primary">ACCESS DETAILS</h6>
+        <h6 class="text-primary">PASSWORD</h6>
       </a>
-      <p>You can change your access details (password ).</p>
+      <p>You can update your password.</p>
 
     </div>
   </div>

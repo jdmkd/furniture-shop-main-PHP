@@ -1,7 +1,11 @@
 <?php
 require('../include/header.php');
-if (!isset($_SESSION['email'])) {
-    header('location: signin.php');
+// if (!isset($_SESSION['email'])) {
+//     header('location: signin.php');
+// }
+include('include/dbcon.php');
+if (isset($_SESSION['email'])) {
+  header('location: admin/index.php');
 }
 ?>
 <div class="container">
@@ -28,11 +32,11 @@ if (!isset($_SESSION['email'])) {
                     $password = $_POST['password'];
 
 
-                    $check_query = "SELECT * FROM user WHERE email='$email' LIMIT 1   ";
+                    $check_query = "SELECT * FROM `admin` WHERE email='$email' LIMIT 1   ";
                     $check_run = mysqli_query($con, $check_query);
                     $row = mysqli_fetch_array($check_run);
                     $db_email = $row['email'];
-                    $db_number = $row['p_number'];
+                    $db_number = $row['number'];
 
 
                     if (empty($name) or empty($email) or empty($number) or empty($password)) {
@@ -43,7 +47,7 @@ if (!isset($_SESSION['email'])) {
                         if ($email != $db_email) {
                             if (filter_var("$email", FILTER_VALIDATE_EMAIL)) {
 
-                                $query = "INSERT INTO user (name,email,password,p_number,role) VALUES('$name','$email','$password','$number','author')";
+                                $query = "INSERT INTO `admin` (name,email,password,number) VALUES('$name','$email','$password','$number',)";
                                 if (mysqli_query($con, $query)) {
                                     $msg = "<span style='color:green; font-weight:bold;'>You Have Been Registered! Now</span>";
                                 }

@@ -1,3 +1,4 @@
+
 <?php
 include('include/header.php');
 
@@ -6,24 +7,29 @@ if (!isset($_SESSION['email'])) {
 }
 
 if (isset($_SESSION['email'])) {
-
   $customer_id    = $_SESSION['id'];
-
-  $query = "SELECT * FROM customer WHERE cust_id=$customer_id";
-  $run   = mysqli_query($con, $query);
+  $customer_data = "SELECT * FROM customer WHERE cust_id=$customer_id";
+  
+  $run   = mysqli_query($con, $customer_data);
   $row = mysqli_fetch_array($run);
-
-  $cust_name = $row['cust_name'];
-  $cust_email = $row['cust_email'];
-  $cust_add = $row['cust_add'];
-  $cust_city = $row['cust_city'];
-  $cust_pcode = $row['cust_postalcode'];
-  $cust_number = $row['cust_number'];
+  
+  if($row){
+    $cust_name   = $row['cust_name'];  
+    $cust_email  = $row['cust_email'];
+    $cust_add    = $row['cust_add'];
+    $cust_city   = $row['cust_city'];
+    $cust_pcode  = $row['cust_postalcode'];
+    $cust_number = $row['cust_number'];
+  }
+  else{
+    echo("proble while fetching data row!!");
+  }
+  
 
 
   if (isset($_POST['update'])) {
     $fullname = $_POST['fullname'];
-    echo $email    = $_POST['email'];
+    $email    = $_POST['email'];
     $address  = $_POST['address'];
     $city     = $_POST['city'];
     $code     = $_POST['code'];
@@ -85,7 +91,7 @@ if (isset($_SESSION['email'])) {
         </div>
 
         <div class="form-group p-2">
-          <input type="text" name="email" placeholder="Email" class="form-control p-2 px-2" value="<?php echo $cust_email; ?>" disabled>
+          <input type="text" name="email" placeholder="Email" class="form-control p-2 px-2" value="<?php echo $cust_email; ?>" readonly>
         </div>
 
 
