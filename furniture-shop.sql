@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2023 at 10:11 PM
+-- Generation Time: Feb 02, 2025 at 02:01 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `image`, `email`, `password`) VALUES
-(1, 'admin', 'logo.png', 'admin@gmail.com', 'admin123');
+(1, 'admin', 'go-green.jpg', 'admin@gmail.com', 'admin123');
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,8 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`cart_id`, `cust_id`, `product_id`, `quantity`) VALUES
 (28, 5, 42, 1),
 (90, 5, 40, 1),
-(91, 5, 13, 1);
+(91, 5, 13, 1),
+(97, 4, 40, 1);
 
 -- --------------------------------------------------------
 
@@ -110,8 +111,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cust_id`, `cust_name`, `cust_email`, `cust_pass`, `cust_add`, `cust_city`, `cust_postalcode`, `cust_number`) VALUES
-(4, 'jd mkd', 'jdmkd@gmail.com', '12', 'Ahmedabad', 'Ahmedabad', '090909', '9999999999'),
-(5, 'dhaval', 'dhaval@gmail.com', '123', 'Ahmedabad', 'Ahmedabad', '989898', '9898989898');
+(4, 'jd mkd', 'jdmkd@gmail.com', '123', 'Ahmedabad', 'Ahmedabad', '090909', '9999999999'),
+(5, 'dhaval', 'dhaval@gmail.com', '123', 'Ahmedabad', 'Ahmedabad', '989898', '9898989898'),
+(6, 'pinkesh', 'pinkesh@gmail.com', '1234', 'new cg', 'ahmedabad', '777798', '5557575757');
 
 -- --------------------------------------------------------
 
@@ -142,10 +144,11 @@ CREATE TABLE `customer_order` (
 
 INSERT INTO `customer_order` (`order_id`, `customer_id`, `customer_email`, `customer_fullname`, `customer_address`, `customer_city`, `customer_pcode`, `customer_phonenumber`, `product_id`, `product_amount`, `invoice_no`, `products_qty`, `order_date`, `order_status`) VALUES
 (74, 4, 'jdmkd@gmail.com', 'jd mkd', 'Ahmedabad', 'Ahmedabad', 90909, '9999999999', 42, 12050, 1015372754, 1, '08-12-2023', 'verified'),
-(75, 4, 'jdmkd@gmail.com', 'jd mkd', 'Ahmedabad', 'Ahmedabad', 90909, '9999999999', 40, 12400, 1015372754, 1, '08-12-2023', 'pending'),
+(75, 4, 'jdmkd@gmail.com', 'jd mkd', 'Ahmedabad', 'Ahmedabad', 90909, '9999999999', 40, 12400, 1015372754, 1, '08-12-2023', 'verified'),
 (76, 4, 'jdmkd@gmail.com', 'jd mkd', 'Ahmedabad', 'Ahmedabad', 90909, '9999999999', 41, 12050, 1015372754, 1, '08-12-2023', 'pending'),
 (77, 4, 'jdmkd@gmail.com', 'jd mkd', 'Ahmedabad', 'Ahmedabad', 90909, '9999999999', 37, 57000, 1015372754, 1, '08-12-2023', 'pending'),
-(78, 4, 'jdmkd@gmail.com', 'jd mkd', 'Ahmedabad', 'Ahmedabad', 90909, '9999999999', 40, 12400, 328245411, 1, '12-12-2023', 'verified');
+(78, 4, 'jdmkd@gmail.com', 'jd mkd', 'Ahmedabad', 'Ahmedabad', 90909, '9999999999', 40, 12400, 328245411, 1, '12-12-2023', 'verified'),
+(79, 4, 'jdmkd@gmail.com', 'jd mkd', 'Ahmedabad', 'Ahmedabad', 90909, '9999999999', 41, 12050, 1512270263, 1, '13-12-2023', 'verified');
 
 -- --------------------------------------------------------
 
@@ -261,7 +264,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -273,19 +276,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `customer_order`
 --
 ALTER TABLE `customer_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `furniture_product`
 --
 ALTER TABLE `furniture_product`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables
